@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/item_template">
+
+    <!-- Image of the Property -->
+    <ImageView
+        android:id="@+id/propertyImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:srcCompat="@drawable/property_pc" />
+
+    <!-- Name of the Property -->
+    <TextView
+        android:id="@+id/propertyName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/propertyImage"
+        app:layout_constraintTop_toTopOf="@id/propertyImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Property Name" />
+
+    <!-- Type and Square Meters -->
+    <TextView
+        android:id="@+id/propertyTypeAndSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@id/propertyImage"
+        app:layout_constraintTop_toBottomOf="@id/propertyName"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="House • 120 m²" />
+
+    <!-- Price of the Property -->
+    <TextView
+        android:id="@+id/propertyPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/propertyImage"
+        app:layout_constraintTop_toBottomOf="@id/propertyTypeAndSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="$250,000" />
+
+    <!-- Sold Label -->
+    <TextView
+        android:id="@+id/propertySoldLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="Sold"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/propertyPrice" />
+
+    <!-- Last Update Date -->
+    <TextView
+        android:id="@+id/propertyLastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Updated: 2024-12-19" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

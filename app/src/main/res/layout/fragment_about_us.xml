@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.AboutUsFragment"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Título con sombra y estilo -->
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:shadowRadius="3"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Imagen de portada con bordes redondeados -->
+        <ImageView
+            android:id="@+id/about_image"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/real_estate"/>
+
+        <!-- Descripción (texto largo) con espaciado y justificación -->
+        <TextView
+            android:id="@+id/description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="Welcome to the jungle of the crazy chimpanzees! We are a group of monkey experts in programming, and between bananas and laughter, we dedicate ourselves to creating apps that will surprise you. Each member of the team has their specialty: from the Developer Monkey who types non-stop to the Creative Chimpanzee who imagines crazy ideas while hanging from the trees. Our office is a literal jungle (no exaggeration!), and amidst laughter, bugs, and piles of coffee, we work to bring you the best from our wild world. Join the madness and discover our creations, made with a lot, but a lot of monkey energy!"
+            />
+
+
+    </LinearLayout>
+</ScrollView>

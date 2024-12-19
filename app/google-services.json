@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "433754277781",
+    "project_id": "inmobiliaria-fe630",
+    "storage_bucket": "inmobiliaria-fe630.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433754277781:android:ff7d49c79f13319d69589c",
+        "android_client_info": {
+          "package_name": "com.teknos.m8uf2.fxsane"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVzIaSQX7Ls5uKGoKEADuL00FetFhN89A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
