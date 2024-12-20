@@ -46,33 +46,31 @@ class InmobiliariaSingleton private constructor() {
                 callback(emptyList(), "Error al obtener las propiedades: ${e.message}")
             }
     }
-
-    fun saveREProperty(property: Propietat, callback: (Boolean, String?) -> Unit) {
+    fun saveREProperty(property: Propietat, callback: (Boolean, String?) -> Unit){
         val userId = currentUser?.id
         if (userId == null) {
             callback(false, "Usuario no autenticado")
             return
         }
-
-        val propertyToSave = property.copy(userId = userId)
-        val documentRef = if (propertyToSave.id.isNullOrEmpty()) {
-            firebaseFirestore.collection("RealEstateProperties").document()
-        } else {
-            firebaseFirestore.collection("RealEstateProperties").document(propertyToSave.id!!)
+        property.userId = userId
+        if (property.id.isNullOrEmpty()) {
+            property.id = firebaseFirestore.collection("RealEstateProperties")
+                .document()
+                .id
         }
-
-        documentRef.set(propertyToSave)
+        firebaseFirestore.collection("RealEstateProperties")
+            .document(property.id!!)
+            .set(property)
             .addOnSuccessListener {
-                if (propertyToSave.id.isNullOrEmpty()) {
-                    propertyToSave.id = documentRef.id // Asigna el ID generado si es un nuevo documento
+                if (propietats.find { it.id == property.id } == null) {
+                    propietats.add(property)
+                } else {
+                    val index = propietats.indexOfFirst { it.id == property.id }
+                    if (index != -1) {
+                        propietats[index] = property
+                    }
+                    callback(true, "Propiedad guardada correctamente")
                 }
-                if (!propietats.contains(propertyToSave)) {
-                    propietats.add(propertyToSave)
-                }
-                callback(true, "Propiedad guardada correctamente")
-            }
-            .addOnFailureListener { e ->
-                callback(false, "Error al guardar la propiedad: ${e.message}")
             }
     }
 

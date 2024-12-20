@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class AuthManager private constructor(){
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firebaseFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private lateinit var user: UserApp
+    private var user: UserApp? = null
 
     companion object{
         @Volatile
@@ -67,7 +67,7 @@ class AuthManager private constructor(){
             setActualUser {
                 if (it) {
                     val userId = currentUser.uid
-                    val credential = EmailAuthProvider.getCredential(user.email, user.password)
+                    val credential = EmailAuthProvider.getCredential(user!!.email, user!!.password)
                     currentUser.reauthenticate(credential).addOnCompleteListener { task
                         ->
                         if (task.isSuccessful) {
@@ -183,7 +183,35 @@ class AuthManager private constructor(){
                         callback(false, "Error al registrar usuario: ${task.exception?.message}")
                     }
                 }
-            singOut()
+            signOut()
+        }
+    }
+    fun deleteUser(callback: (Boolean, String?) -> Unit) {
+        val credential = EmailAuthProvider.getCredential(user!!.email, user!!.password)
+        val currentUser = firebaseAuth.currentUser
+        val userid = user!!.id
+
+        currentUser!!.reauthenticate(credential).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                firebaseFirestore.collection("UserApp")
+                    .document(userid!!)
+                    .delete()
+                    .addOnSuccessListener {
+                        currentUser.delete().addOnCompleteListener { deleteTask ->
+                            if (task.isSuccessful) {
+                                callback(true, "Usuario eliminado correctamente")
+                                user = null
+                            } else {
+                                callback(
+                                    false,
+                                    "Error al eliminar el usuario: ${deleteTask.exception?.message}"
+                                )
+                            }
+                        }
+                    }
+            }else{
+                callback(false, "Error al autenticar el usuario: ${task.exception?.message}")
+            }
         }
     }
     fun signIn(email: String, password: String, callback: (Boolean, String?) -> Unit){
@@ -201,7 +229,9 @@ class AuthManager private constructor(){
                 }
             }
         }
-    fun singOut(){
+    fun signOut() {
+        user = null
         firebaseAuth.signOut()
     }
+
 }

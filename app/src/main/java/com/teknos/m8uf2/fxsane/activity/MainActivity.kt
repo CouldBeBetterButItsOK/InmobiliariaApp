@@ -3,6 +3,7 @@ package com.teknos.m8uf2.fxsane.activity
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.teknos.m8uf2.fxsane.R
 import com.teknos.m8uf2.fxsane.databinding.ActivityMainBinding
 import com.teknos.m8uf2.fxsane.fragment.LogInFragment
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val splashScreen = installSplashScreen()
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -61,6 +61,7 @@ class LogInFragment : Fragment() {
         }
         binding.createUserBT.setOnClickListener {
             val fragment = EditUserFragment()
+            authManager.signOut()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.log_in_fragment_container, fragment)
                 .addToBackStack(null)

@@ -75,6 +75,7 @@ class RealEstateFragment : Fragment() {
 
         // Floating Action Button to Add/Edit Property
         binding.floatingActionButton.setOnClickListener {
+            InmobiliariaSingleton.getInstance().cleanSelectedProperty()
             val editFragment = EditObjectFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment_container, editFragment)

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_user">Nuevo usuario</string>
+    <string name="log_in">Entrar</string>
+    <string name="mail">"Mail: "</string>
+    <string name="password">Contraseña</string>
+    <string name="mail_placeholder">exem123@mail.com</string>
+    <string name="title">Inmobiliaria</string>
+    <string name="login_successful">Login successful!</string>
+    <string name="login_failed">"Error: "</string>
+    <string name="create_new_user">Crear un nuevo usuario</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="phone_placeholder">672123432</string>
+    <string name="phone">"Mòbil: "</string>
+    <string name="street_placeholder">Calle</string>
+    <string name="street">"Calle: "</string>
+    <string name="city_placeholder">Ciudad</string>
+    <string name="city">"Ciudad: "</string>
+    <string name="nickname_placeholder">nombre de usuario</string>
+    <string name="nickname">"Nombre: "</string>
+    <string name="about_us">Sobre nosotros</string>
+    <string name="home">Inicio</string>
+    <string name="real_estate">Inmobiliaria</string>
+    <string name="edit_user">Editar usuario</string>
+    <string name="log_out">Cerrar sesión</string>
+    <string name="delete_user">Eliminar usuario</string>
+    <string name="description">"Descripción: "</string>
+    <string name="price">Precio: </string>
+    <string name="m2">M2: </string>
+    <string name="direction">Dirección: </string>
+    <string name="date">Fecha: </string>
+    <string name="category">Categoria: </string>
+    <string name="updated">Actualización: </string>
+    <string name="name">Nombre: </string>
+    <string name="cancel_question">Estàs seguro de que quieres cancelar? </string>
+    <string name="delete_user_question">Estas seguro de que quieres borrar el usuario?</string>
+    <string name="delete_property_question">Estàs seguro de que quieres borrar la propiedad? </string>
+    <string name="confirm_delete">"Confirmar eliminar? "</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="edit_property">Editar propiedad</string>
+    <string name="new_property">Nueva propiedad</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

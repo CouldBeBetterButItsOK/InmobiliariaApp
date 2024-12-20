@@ -19,13 +19,11 @@ import com.teknos.m8uf2.fxsane.singleton.AuthManager
 import com.teknos.m8uf2.fxsane.singleton.InmobiliariaSingleton
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import kotlin.math.sin
 
 class ItemDetailFragment : Fragment() {
 
     private var _binding: FragmentItemDetailBinding? = null
     private val binding get() = _binding!!
-    private lateinit var gestureDetector: GestureDetector
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +34,7 @@ class ItemDetailFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,27 +57,6 @@ class ItemDetailFragment : Fragment() {
         binding.description.text = property.description
         binding.objImg.setImageResource(R.drawable.property_pc)
 
-        // Gesture detector for swipe to go back
-        gestureDetector = GestureDetector(requireContext(), object : GestureDetector.SimpleOnGestureListener() {
-            override fun onFling(
-                e1: MotionEvent?,
-                e2: MotionEvent,
-                velocityX: Float,
-                velocityY: Float
-            ): Boolean {
-                if (e1 != null && e2 != null && e2.x > e1.x) {
-                    singleton.cleanSelectedProperty()
-                    parentFragmentManager.popBackStack() // Go back
-                    return true
-                }
-                return false
-            }
-        })
-
-        binding.root.setOnTouchListener { _, event ->
-            gestureDetector.onTouchEvent(event)
-            true
-        }
 
         // Show or hide edit/delete buttons based on userId
         val currentUser = AuthManager.getInstance().getCurrentUser()?.uid
