@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subastes Pochas Home"
+            android:text="Inmobiliaria"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
             android:id="@+id/textView"
             android:layout_width="313dp"
             android:layout_height="155dp"
-            android:text="A 12 hores de la entrega falta pressupost per a fer una pantalla de home més maca"
+            android:text="Pantalla generica, la qual funcionaria com a part principal de la aplicació en cas de que hi fós"
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
