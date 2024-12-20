@@ -15,6 +15,7 @@ import com.teknos.m8uf2.fxsane.activity.BodyActivity
 import com.teknos.m8uf2.fxsane.databinding.FragmentLogInBinding
 import com.teknos.m8uf2.fxsane.model.UserApp
 import com.teknos.m8uf2.fxsane.singleton.AuthManager
+import com.teknos.m8uf2.fxsane.singleton.InmobiliariaSingleton
 
 class LogInFragment : Fragment() {
     private var _binding: FragmentLogInBinding? = null

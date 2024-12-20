@@ -82,7 +82,7 @@ class ItemDetailFragment : Fragment() {
                     .setTitle(getString(R.string.confirm_delete))
                     .setMessage(getString(R.string.delete_user_question))
                     .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                        singleton.removeAndArchiveProperty(property) { success, message ->
+                        singleton.removeREProperty(property) { success, message ->
                             if (success) {
                                 parentFragmentManager.popBackStack()
                             } else {

@@ -68,9 +68,9 @@ class InmobiliariaSingleton private constructor() {
                     val index = propietats.indexOfFirst { it.id == property.id }
                     if (index != -1) {
                         propietats[index] = property
-                    }
+                    }}
                     callback(true, "Propiedad guardada correctamente")
-                }
+
             }
     }
 
@@ -84,38 +84,32 @@ class InmobiliariaSingleton private constructor() {
     fun getSelectedREProperty(): Propietat? {
         return selectedObject
     }
-    fun removeAndArchiveProperty(property: Propietat, callback: (Boolean, String?) -> Unit) {
+    fun removeREProperty(property: Propietat, callback: (Boolean, String?) -> Unit) {
         val propertyId = property.id ?: return
-        val documentRef = firebaseFirestore.collection("RealEstateProperties").document(propertyId)
-
-        documentRef.get()
-            .addOnSuccessListener { documentSnapshot ->
-                val archivedProperty = documentSnapshot.toObject(Propietat::class.java)
-                if (archivedProperty != null) {
-                    firebaseFirestore.collection("DeletedProperties").document(propertyId)
-                        .set(archivedProperty)
-                        .addOnSuccessListener {
-                            documentRef.delete()
-                                .addOnSuccessListener {
-                                    propietats.remove(property)
-                                    cleanSelectedProperty()
-                                    callback(true, "Propiedad archivada y eliminada correctamente")
-                                }
-                                .addOnFailureListener { e ->
-                                    callback(false, "Error al eliminar la propiedad original: ${e.message}")
-                                }
-                        }
-                        .addOnFailureListener { e ->
-                            callback(false, "Error al archivar la propiedad: ${e.message}")
-                        }
-                } else {
-                    callback(false, "Propiedad no encontrada")
-                }
+        firebaseFirestore.collection("RealEstateProperties").document(propertyId)
+            .delete()
+            .addOnSuccessListener {
+                propietats.remove(property)
+                firebaseFirestore.collection("DeletedProperties").document(propertyId)
+                    .set(property)
+                    .addOnSuccessListener {
+                        callback(true, "Propiedad eliminada correctamente")
+                        cleanSelectedProperty()
+                    }.addOnFailureListener { e ->
+                        callback(false, "Error al archivar la propiedad: ${e.message}")
+                    }
             }
             .addOnFailureListener { e ->
-                callback(false, "Error al obtener la propiedad para archivar: ${e.message}")
+                callback(false, "Error al eliminar la propiedad: ${e.message}")
             }
     }
+    fun signOut() {
+        currentUser = null
+    }
+    fun signIn(userApp: UserApp){
+        currentUser = userApp
+    }
+
 
 
 }

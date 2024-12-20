@@ -220,6 +220,7 @@ class AuthManager private constructor(){
                 if(task.isSuccessful){
                     setActualUser{
                         if(it){
+                            InmobiliariaSingleton.getInstance().signIn(user!!)
                             callback(true, null)
                         }
                     }
@@ -231,6 +232,7 @@ class AuthManager private constructor(){
         }
     fun signOut() {
         user = null
+        InmobiliariaSingleton.getInstance().signOut()
         firebaseAuth.signOut()
     }
 
