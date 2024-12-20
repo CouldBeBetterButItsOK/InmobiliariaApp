@@ -25,22 +25,32 @@ class AuthManager private constructor(){
     fun getCurrentUser(): FirebaseUser?{
         return firebaseAuth.currentUser
     }
-    fun getUserById(callback:(UserApp?, String?) -> Unit){
+    fun getUserById(callback: (UserApp?, String?) -> Unit) {
+        val currentUser = firebaseAuth.currentUser
+        if (currentUser == null) {
+            callback(null, "Current user is null")
+            return
+        }
+
         firebaseFirestore.collection("UserApp")
-            .document(firebaseAuth.currentUser!!.uid)
+            .document(currentUser.uid)
             .get()
             .addOnSuccessListener { document ->
-                if(document.exists()){
+                if (document.exists()) {
                     val userById = document.toObject(UserApp::class.java)
-                    callback(userById, null)
-                }else{
+                    if (userById != null) {
+                        callback(userById, null)
+                    } else {
+                        callback(null, "User data is null")
+                    }
+                } else {
                     callback(null, "User not found")
                 }
             }
             .addOnFailureListener { e ->
                 callback(null, e.message)
-                }
             }
+    }
     fun setActualUser(callback: (Boolean) -> Unit) {
         getUserById { u, e ->
             if (u != null) {
