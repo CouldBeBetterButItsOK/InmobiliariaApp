@@ -1,3 +1,4 @@
+import android.annotation.SuppressLint
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ class PropertyAdapter(
         return properties.size
     }
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: PropertyViewHolder, position: Int) {
         val currentItem = properties[position]
@@ -49,6 +51,7 @@ class PropertyAdapter(
         holder.binding.root.setOnClickListener { listener(currentItem) }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList: List<Propietat>) {
         properties = newList
         notifyDataSetChanged()

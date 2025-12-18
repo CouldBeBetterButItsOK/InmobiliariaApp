@@ -24,6 +24,7 @@ import com.teknos.m8uf2.fxsane.fragment.AboutUsFragment
 import com.teknos.m8uf2.fxsane.fragment.HomeFragment
 import com.teknos.m8uf2.fxsane.fragment.RealEstateFragment
 import com.teknos.m8uf2.fxsane.fragment.EditUserFragment
+import com.teknos.m8uf2.fxsane.fragment.ScanQRFragment
 import com.teknos.m8uf2.fxsane.singleton.AuthManager
 
 class BodyActivity : AppCompatActivity() {
@@ -67,6 +68,10 @@ class BodyActivity : AppCompatActivity() {
                 }
                 R.id.inmobiliaria -> {
                     navigateToFragment(RealEstateFragment())
+                    true
+                }
+                R.id.scanQr -> {
+                    navigateToFragment(ScanQRFragment())
                     true
                 }
                 else -> false

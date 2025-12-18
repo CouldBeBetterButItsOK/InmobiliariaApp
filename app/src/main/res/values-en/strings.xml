@@ -20,6 +20,8 @@
     <string name="about_us">About us</string>
     <string name="home">Home</string>
     <string name="real_estate">Real Estate</string>
+    <string name="scanQR">Scan QR</string>
+    <string name="scanQRbt">Scan QR code to add property</string>
     <string name="edit_user">Edit user</string>
     <string name="log_out">Log out</string>
     <string name="delete_user">Delete user</string>

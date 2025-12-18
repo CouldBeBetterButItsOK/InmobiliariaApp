@@ -49,7 +49,6 @@
         <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         <item name="windowSplashScreenAnimationDuration">3000</item>
-        <item name="postSplashScreenTheme">@style/AppTheme</item>
 
     </style>
 </resources>

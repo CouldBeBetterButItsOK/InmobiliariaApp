@@ -22,6 +22,8 @@
     <string name="about_us">Sobre nosotros</string>
     <string name="home">Inicio</string>
     <string name="real_estate">Inmobiliaria</string>
+    <string name="scanQR">Escanear QR</string>
+    <string name="scanQRbt">Escanear código QR para registrar propiedad</string>
     <string name="edit_user">Editar usuario</string>
     <string name="log_out">Cerrar sesión</string>
     <string name="delete_user">Eliminar usuario</string>

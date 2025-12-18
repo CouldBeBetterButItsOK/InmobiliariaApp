@@ -23,6 +23,8 @@
     <string name="about_us">About us</string>
     <string name="home">Home</string>
     <string name="real_estate">Real Estate</string>
+    <string name="scanQR">scanQR</string>
+    <string name="scanQRbt">Scan QR code to add property</string>
     <string name="edit_user">Edit user</string>
     <string name="log_out">Log out</string>
     <string name="delete_user">Delete user</string>
@@ -45,7 +47,6 @@
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <!-- TODO: Remove or change this placeholder text -->
 
 
 </resources>

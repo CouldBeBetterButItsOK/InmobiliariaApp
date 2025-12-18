@@ -35,7 +35,7 @@ class EditUserFragment : Fragment() {
         _binding = FragmentEditUserBinding.inflate(inflater, container, false)
         val view = binding.root
         authManager = AuthManager.getInstance()
-        if( authManager.getCurrentUser() != null) {
+        if (authManager.getCurrentUser() != null) {
             authManager.getUserById { u, e ->
                 if (u != null) {
                     userApp = u
